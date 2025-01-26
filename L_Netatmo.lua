@@ -438,6 +438,9 @@ local function netatmoAPI (client_id, client_secret)
         redirect_uri = redirect_uri,
         scope = scope,
         } )
+  -- Log the API response for debugging
+  log("retrieve_token_using_code - API response: " .. json.encode(reply))
+		
     access_token, refresh_token = reply.access_token, reply.refresh_token -- , reply.expires_in
     return reply.refresh_token          -- need to return this to store externally
   end
